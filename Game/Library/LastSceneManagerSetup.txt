@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/1_DanceHall.unity
+- path: Assets/Scenes/6_Library_Violet.unity
   isLoaded: 1
   isActive: 1
