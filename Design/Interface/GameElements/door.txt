@@ -1,0 +1,5 @@
+This door is locked.
+The door is open.
+Strange marks on this door.
+I must to explore the chambers to find teh key
+This way!
