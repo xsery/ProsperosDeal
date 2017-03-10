@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	string lastScene;
 
+	public bool hasKey = false;
+
 	void Awake(){
 		if (!instance) {
 			instance = this;

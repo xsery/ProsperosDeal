@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/1_DanceHall.unity
+- path: Assets/Scenes/3_MusicRoom_Purple.unity
   isLoaded: 1
   isActive: 1

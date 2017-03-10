@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class DoorBehaviour : MonoBehaviour {
 
+	public bool hasLock = false;
+	public string doorId;
+
 	public Transform player;
 
 	public bool isWall;
 	public bool isStair;
 	bool onStair = false;
 	public bool isLocked;
+	public bool needKey;
 	public Object toRoom;
 
 	void Start(){
@@ -33,9 +37,26 @@ public class DoorBehaviour : MonoBehaviour {
 				SceneManager.LoadScene (toRoom.name);
 			}
 		}
+
+		if (hasLock) {
+			if (PlayerPrefs.GetInt (doorId) == 0) {
+				isLocked = true;
+			} else {
+				isLocked = false;
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
+		if (isLocked) {
+			if ((col.gameObject.tag == "Player") && (needKey)) {
+				if (col.gameObject.GetComponent<PlayerMovement> ().hasKey == true) {
+					isLocked = false;
+				}
+			}
+			Debug.Log ("Is Locked!");
+		}
+
 		if ((!isLocked) && (!isStair) && (col.gameObject.GetComponent<PlayerMovement> ().spawned == true)) {
 			if ((col.gameObject.tag == "Player") && (!isWall)) {
 				if (this.gameObject.name == "R_door") {
